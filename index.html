@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora Basica</title>
+  </head>
+  <body>
+    <script>
+
+      //declaracion de variables
+      let num1 = 10; // Valor inicial simulado
+      let num2 = 5; // Valor inicial simulado
+      let operacion = ""; // Esta variable tomará los valores: "suma", "resta", "multiplicacion", "division"
+
+      //creacion de la funcion de operaciones
+      function realizarOperacion(num1, num2, operacion) {
+        if (operacion === "suma") {
+          return num1 + num2;
+        } else if (operacion === "resta") {
+          return num1 - num2;
+        } else if (operacion === "multiplicacion") {
+          return num1 * num2;
+        } else if (operacion === "division") {
+          if (num2 === 0) {
+            return "Error: No se puede dividir entre cero.";
+          }
+          return num1 / num2;
+        } else {
+          return "Error: Operación no válida.";
+        }
+      }
+
+      //ciclo repetitivo
+      while (true) {
+
+        // Pedir los números
+        num1 = parseFloat(prompt("Ingresa el primer número:"));
+        num2 = parseFloat(prompt("Ingresa el segundo número:"));
+
+        // Validar que los valores ingresados son números
+        if (isNaN(num1) || isNaN(num2)) {
+          alert("Error: Debes ingresar números válidos.");
+          continue;
+        }
+        operacion = prompt(
+          "Digite la operacion que desea realizar (suma, resta, multiplicacion, division) o escriba 'salir' para terminar:"
+        );
+
+        // Salida del bucle
+        if (operacion === "salir") {
+          alert("¡Gracias por usar la calculadora!");
+          break;
+        }
+
+        // Llamar a la función y mostrar el resultado
+        const resultado = realizarOperacion(num1, num2, operacion);
+        alert("Resultado: " + resultado);
+      }
+
+    </script>
+  </body>
+</html>
